@@ -1,7 +1,5 @@
 # React - weather-app
 
-https://rawfour.github.io/weather-app-react/
-
 ## Table of contents
 * [Instructions](#Instructions)
 * [Description](#Description)
