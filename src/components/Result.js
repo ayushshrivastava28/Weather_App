@@ -149,9 +149,14 @@ const Result = ({ weather }) => {
   } = weather;
 
   const forecasts = forecast.map(item => (
+
+    //let min = item.main.temp_min;
+    //let max = item.main.temp_max;
     <ForecastHour
       key={item.dt}
       temp={Math.floor(item.main.temp * 1) / 1}
+      HighestTemp={item.main.temp_max * 1 / 1}
+      lowestTemp={item.main.temp_min * 1 / 1}
       icon={item.weather[0].icon}
       month={item.dt_txt.slice(5, 7)}
       day={item.dt_txt.slice(8, 10)}

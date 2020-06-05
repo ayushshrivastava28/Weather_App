@@ -111,14 +111,26 @@ class App extends React.Component {
         const sunset = new Date(data1.sys.sunset * 1000).toLocaleTimeString().slice(0, 5);
         const sunrise = new Date(data1.sys.sunrise * 1000).toLocaleTimeString().slice(0, 5);
 
+        let max = -10;
+        let min = data2?.list[0]?.main?.temp_min;
+
+        for (let i=0; i < data2.list.length; i++) {
+          if (data2?.list[i]?.main?.temp_min < min) {
+            min = data2.list[i].main.temp_min;
+          }
+          if (max < data2?.list[i]?.main?.temp_max) {
+            max = data2.list[i].main.temp_max;
+          }
+        }
+
         const weatherInfo = {
           city: data1.name,
           country: data1.sys.country,
           date,
           main: data1.weather[0].main,
           temp: data1.main.temp,
-          highestTemp: data1.main.temp_max,
-          lowestTemp: data1.main.temp_min,
+          highestTemp: max,
+          lowestTemp: min,
           sunrise,
           sunset,
           clouds: data1.clouds.all,

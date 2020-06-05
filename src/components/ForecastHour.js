@@ -37,7 +37,7 @@ const WeatherIcon = styled.img`
 `;
 
 const ForecastHour = props => {
-  const { temp, month, day, hour, icon } = props;
+  const { temp, month, day, hour, icon, HighestTemp, lowestTemp } = props;
   const iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
 
   return (
@@ -50,19 +50,19 @@ const ForecastHour = props => {
       <SmallLabel align="center" weight="400">
         {temp}&#176;
       </SmallLabel>
-      {/* <SmallLabel align="center" weight="400">
+      <SmallLabel align="center" weight="400">
             {HighestTemp}&#176;
           </SmallLabel>
           <SmallLabel align="center" weight="400">
             {lowestTemp}&#176;
-          </SmallLabel> */}
+          </SmallLabel>
     </ForecastWrapper>
   );
 };
 
 ForecastHour.propTypes = {
-  // HighestTemp: PropTypes.number.isRequired,
-  // lowestTemp: PropTypes.number.isRequired,
+  HighestTemp: PropTypes.number.isRequired,
+  lowestTemp: PropTypes.number.isRequired,
   temp: PropTypes.number.isRequired,
   // weekDay:PropTypes.string.isRequired,
   month: PropTypes.string.isRequired,
